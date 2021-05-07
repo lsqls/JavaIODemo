@@ -43,6 +43,13 @@ public class SocketServer {
         }
         log.info("Get a message '{}' from client {}" ,sb,socket.getRemoteSocketAddress());
 
+
+
+        String respStr= "Hello,I get the message";
+        log.info("Response message '{}' to Client {} ",respStr,clientAddress);
+        outputStream.write(respStr.getBytes(CHARSET));
+        socket.shutdownOutput();
+
         //关闭连接和服务器
         inputStream.close();
         socket.close();
